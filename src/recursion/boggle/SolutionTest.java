@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class SolutionTest {
@@ -45,6 +46,48 @@ public class SolutionTest {
 	};
 
 	
+	final char[][] board4 = { 
+	{'F','N','T','J','M','S','G','W','S','I','H','C','D','S','Q','J','L'},
+	{'E','S','P','J','P','T','B','M','Y','R','L','Y','V','A','M','G','G'},
+	{'Y','J','M','X','V','L','U','T','L','L','I','S','Z','R','G','X','P'},
+	{'C','P','M','F','J','U','K','V','D','Z','T','D','S','G','U','I','W'},
+	{'M','K','Z','X','Z','P','E','R','D','M','R','L','T','V','W','T','Q'},
+	{'D','N','B','O','R','N','W','V','B','W','D','O','I','C','A','G','O'},	
+	{'R','I','G','D','H','W','G','P','R','N','Q','N','S','A','H','J','A'},
+	{'K','K','G','S','Y','H','Q','N','N','S','L','Z','K','V','W','N','P'},
+	{'H','M','J','I','M','N','X','V','F','Z','T','E','Y','G','L','K','L'},
+	{'U','X','Z','M','W','L','J','T','A','C','K','C','K','U','O','E','P'},
+	{'A','F','V','A','L','O','F','Z','Q','L','H','W','I','P','E','M','H'},//10
+	{'K','Z','Z','A','M','X','T','U','Z','Z','S','D','N','A','W','L','Y'},
+	{'S','U','U','K','L','E','P','V','P','H','X','E','Q','D','J','X','R'},
+	{'D','H','R','X','P','S','Q','I','O','K','O','U','X','K','D','J','G'},
+	{'I','C','D','O','T','C','V','B','E','Z','V','X','M','B','F','V','I'},
+	{'J','G','D','H','E','J','F','J','W','A','Q','T','U','G','S','A','L'},
+	{'T','H','U','Q','P','Z','Z','Z','N','X','P','L','A','G','T','S','I'}
+	};
+	
+	final char[][] board5 = { 
+			
+			{'M','W','A','L','O','P','G','I','M','E','Q','N','I','V','Z','P','N','L'},
+			{'E','S','S','N','G','R','Y','Z','G','O','J','D','H','W','B','Q','I','E'},
+			{'J','W','K','X','D','Q','R','H','P','Y','E','A','T','K','C','G','K','L'},
+			{'W','T','H','M','J','J','T','H','Z','W','T','Z','C','O','W','P','X','I'},
+			{'Q','X','F','Z','K','U','G','K','Q','Y','D','H','Y','Q','X','I','O','H'},
+			{'A','Z','K','E','R','Y','B','L','K','C','E','E','P','L','R','J','M','F'},
+			{'Z','G','J','Z','F','F','K','Z','G','K','D','J','F','R','U','T','L','J'},
+			{'A','V','R','U','E','H','I','Z','U','O','F','M','H','P','F','K','M','W'},
+			{'L','K','E','T','V','X','U','M','S','R','P','D','L','A','N','G','V','V'},
+			{'I','S','U','G','K','A','Z','F','O','H','V','G','Q','P','Y','U','V','Y'},
+			{'B','E','T','H','X','S','O','H','N','V','P','B','B','G','H','T','K','R'},//10
+			{'B','D','X','O','I','F','O','K','Z','C','D','I','Z','J','R','N','D','S'},
+			{'A','J','F','D','V','A','Q','G','K','E','M','V','P','P','E','N','N','Y'},
+			{'G','T','B','S','N','A','X','L','G','Q','M','F','C','X','V','T','W','O'},
+			{'W','B','X','S','C','R','T','Z','V','W','H','L','A','A','Q','D','N','X'},
+			{'D','F','K','V','H','Y','D','A','E','J','M','Y','W','F','U','D','L','V'},
+			{'Y','L','S','J','H','W','W','H','Z','Z','M','S','D','F','M','R','K','B'},
+			{'L','C','D','G','I','Y','U','J','S','T','Q','C','Z','Q','U','C','R','K'}
+			};
+			
 
 	private static String[] toCheck = { "C", "EAR", "EARS", "BAILER", "RSCAREIOYBAILNEA", "CEREAL", "ROBES" };
 	private static boolean[] expecteds = { true, true, false, true, true, false, false };
@@ -70,6 +113,16 @@ public class SolutionTest {
 	@Test
 	public void complexTextWithBigMatrix() {
 		assertEquals(true, new Boggle(board3, "TLNBYQFVAF").check());
+	}
+	
+	@Test
+	public void complexTextWithBigMatrixV2() {
+		assertEquals(true, new Boggle(board4, "VSLMOLLA").check());
+	}
+	
+	@Test
+	public void complexTextWithBigMatrixV3() {
+		assertEquals(false, new Boggle(board5, "SWSMZEAWWHJ").check());
 	}
 
 	@Test
