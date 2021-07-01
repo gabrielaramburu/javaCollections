@@ -4,70 +4,63 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Boggle {
-	char[][] board;
-	String word;
-	int currentCharPosition;
-	String sequence;
+	private char[][] board;
+	private String word;
+	
 
 	public Boggle(final char[][] board, final String word) {
 		this.board = board;
 		this.word = word;
 	}
  
+
 	public boolean check() {
+		String sequence;
 		boolean result = false;
 		outerloop:
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board.length; j++) {
-				initialiceSearch();
-				if (currentChar() == board[i][j]) {
-					Celd celd = new Celd(i, j);
-					addCharToSequence();
-					moveNextChar();
-					result = checkRecursive(celd.findNeighborCelds());
-					if (result) break outerloop;
+		for (int y = 0; y < board.length; y++) {
+			for (int x = 0; x < board.length; x++) {
+				int currentCharPosition = 0;
+				sequence = "";
+				List<Celd> usedCelds = new ArrayList<Celd>();
+				
+				Celd celd = new Celd(x, y);
+				if (word.charAt(currentCharPosition) == celd.celdContent()) {
+					sequence += celd.celdContent();
+					usedCelds.add(celd);
+					sequence = checkRecursive(sequence, currentCharPosition+1,  usedCelds, new Celd(x, y).findNeighborCelds());
+					if (sequence.equals(word)) {
+						result = true;
+						break outerloop;
+					}
 				}
 			}
 		}
-		System.out.println("Result for word " + word + " = " + result);
+		System.out.println("*** Result for word " + word + " = " + result);
 		return result;
 	}
-
-	private void initialiceSearch() {
-		this.currentCharPosition = 0;
-		this.sequence="";
-	}
 	
-	private boolean checkRecursive(List<Celd> neighborsCelds) {
-		if (sequence.equals(word)) return true;
+	private String checkRecursive(String sequence, int currentPosition, List<Celd> usedCelds, List<Celd> neighborsCelds) {
+		if (sequence.equals(word)) return sequence;
 		
 		for (Celd celd: neighborsCelds) {
 			
-			if (celd.celdContainsChar(currentChar()) && !celdAlreadyUsed()) {
-				System.out.println("sequence: " + this.sequence);
-				addCharToSequence();
-				moveNextChar();
-				return checkRecursive(celd.findNeighborCelds());
+
+			if (celd.celdContainsChar(word.charAt(currentPosition)) && !usedCelds.contains(celd)) {
+				usedCelds.add(celd);
+				System.out.println("sequence: " + sequence);
+				List<Celd> newList = new ArrayList<Boggle.Celd>();
+				newList.addAll(usedCelds);
+				
+				String auxSequence = checkRecursive(sequence+celd.celdContent(), currentPosition+1, newList, celd.findNeighborCelds());
+				if (auxSequence.equals(word)) {
+					return auxSequence;
+				}
 			}
 		}
-		return false;
-	}
-	
-	private void addCharToSequence() {
-		sequence += currentChar();
-	}
-	
-	private void moveNextChar() {
-		currentCharPosition++;
+		return sequence;
 	}
 
-	private char currentChar() {
-		return word.charAt(currentCharPosition);
-	}
-	
-	private boolean celdAlreadyUsed() {
-		return false;
-	}
 	
 	class Celd {
 		int x;
@@ -99,44 +92,38 @@ public class Boggle {
 			if (((x + 1) < matrixSize) && ((y + 1) < matrixSize))
 				neighbors.add(new Celd(x + 1, y + 1));
 			
-			System.out.println("Neighbors chars of " + this.celdContent());
-			neighbors.forEach(coord -> System.out.println(coord.celdContent()));
+			System.out.println("Neighbors chars of " +  this.toString());
+			neighbors.forEach(coord -> System.out.println(coord.celdContent() + coord.toString()));
 			return neighbors;
 		}
 		
 		boolean celdContainsChar(char c){
-			return board[x][y] == c ? true:false;
+			return board[y][x] == c ? true:false;
 		}
 		
 		char celdContent() {
-			return board[x][y];
+			return board[y][x];
 		}
 
 		@Override
 		public String toString() {
-			return "("+x+","+y+")";
+			return "("+x+","+y+") " + this.celdContent();
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			Celd otherCeld = ((Celd)obj); 
+			return otherCeld.x == this.x && otherCeld.y == this.y?true:false;
 		}
 		
-	}
-
-	public static void main(String[] args) {
-		final char[][] board = { { 'E', 'A', 'R', 'A' }, { 'N', 'L', 'E', 'C' }, { 'I', 'A', 'I', 'S' },
-				{ 'B', 'Y', 'O', 'R' } };
-
-		//testCoordinate();
-		
-		Boggle nb = new Boggle(board, "EARS");
-		System.out.println("Result: " + nb.check());
-		
-	}
-	
-	private static void testCoordinate() {
-		final char[][] board = { { 'E', 'A', 'R', 'A' }, { 'N', 'L', 'E', 'C' }, { 'I', 'A', 'I', 'S' },
-				{ 'B', 'Y', 'O', 'R' } };
-
-		Boggle boogle = new Boggle(board, " ");
-		System.out.println(boogle.new Celd(1, 1).findNeighborCelds());
-		System.out.println(boogle.new Celd(0, 0).findNeighborCelds());
-		System.out.println(boogle.new Celd(2, 2).findNeighborCelds());
+		private void logInfo() {
+			System.out.println("Word: " + word);
+			for (int y = 0; y < board.length; y++) {
+				for (int x = 0; x < board.length; x++) {
+					System.out.print(board[y][x] + ",");
+				}
+				System.out.println("");
+			}
+		}
 	}
 }
