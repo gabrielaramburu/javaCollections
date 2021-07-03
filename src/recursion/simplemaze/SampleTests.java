@@ -1,4 +1,7 @@
 package recursion.simplemaze;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -9,7 +12,7 @@ public class SampleTests {
 	@Test
 	public void testMaze() {
 		for(Object[] testInfo: config()) {
-			new Maze().hasExit((String[])testInfo[0]);
+			assertEquals(testInfo[1], new Maze().hasExit((String[])testInfo[0]),(String)testInfo[2]);
 		}
 	}
     
