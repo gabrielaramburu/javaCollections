@@ -20,18 +20,16 @@ public class SampleTests {
     private static Collection<Object[]> config() {
         return Arrays.asList(
             new Object[] {
-                new String[] {"k"}, true, "Simple tests - simplest case", false},
+                new String[] {"k"}, true, "Simple tests - simplest case"},
             new Object[] {
                 new String[] {"###",
                               "#k#",
-                              "###"}, false, "Simple tests - no exit case", false},
+                              "###"}, false, "Simple tests - no exit case"},
             new Object[] {
                 new String[] {"###",
                               "#k ",
-                              "###"}, true, "Simple tests - single exit case", false},
-            new Object[] {
-                new String[] {"k ",
-                              "kk"}, false, "Simple tests - There should be no multiple Kates", true},
+                              "###"}, true, "Simple tests - single exit case"},
+     
             new Object[] {
                 new String[] {"########",
                               "# # ####",
@@ -39,7 +37,7 @@ public class SampleTests {
                               "# # # ##",
                               "# # # ##",
                               "#      #",
-                              "########"}, true, "More difficult cases - single exit big maze", false},
+                              "########"}, true, "More difficult cases - single exit big maze"},
             new Object[] {
                 new String[] {"########",
                               "# # ## #",
@@ -47,7 +45,71 @@ public class SampleTests {
                               "# # # ##",
                               "# # #  #",
                               "#     ##",
-                              "########"}, false, "no exit big maze", false}
+                              "########"}, false, "no exit big maze"},
+            
+            new Object[] {
+            		new String[] 
+		     			   {"####  #   ",
+		     				"##  ###  #",
+		     				"#    ##   ",
+		     				" #   #  # ",
+		     				"# # ### ##",
+		     				"#   #k# ##",
+		     				" #    ##  ",
+		     				"   # #####",
+		     				"#  ### # #",
+		     				"# ########"}, true, "complex 1"},
+            new Object[] {
+            		new String[] 
+            				{	" ##### # #",
+        						"    ##### ",
+        						"#  #    ##",
+        						"#### # #  ",
+        						"   #  # # ",
+        						"## # k   #",
+        						"#### ## # ",
+        						"# #   #  #",
+        						"# # ##### ",
+        						"#  # # ###",
+        						}   		, false, "complex 2"},
+            new Object[] {
+            		new String[] 
+        						{"### # ## #",
+        						"##   ## ##",
+        						"## # ###  ",
+        						" ######  #",
+        						"   #  ####",
+        						"   # k## #",
+        						"    ## ## ",
+        						" ##  # # #",
+        						"#  ##  ## ",
+        						"##  ## ###",
+        						}
+            		, false, "complex 3"},
+            new Object[] {
+            		new String[] 
+            				{" # # # # #",
+            						"## ##### #",
+            						" ##### ## ",
+            						"##   #  # ",
+            						"# #  #    ",
+            						"##   k## #",
+            						" #  #  #  ",
+            						"#### ##  #",
+            						"# # #   ##",
+            						"# ### ### ",
+            						}
+            		, false, "complex 4"},
+            new Object[] {
+            		new String[] 
+            				{		"####",
+            						"#  #",
+            						"# k#",
+            						"#  #",
+            						"####",
+            						}
+            		, false, "complex 5"}
+            
         );
     }
 }
