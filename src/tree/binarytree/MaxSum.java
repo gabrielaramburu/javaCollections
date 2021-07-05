@@ -1,6 +1,5 @@
 package tree.binarytree;
  class MaxSum {
-	 private static enum Direction {LEFT, RIGHT};
 
 	    /**
 	     *      5
@@ -9,21 +8,31 @@ package tree.binarytree;
 	     *  / \    / \
 	     * 9  50  9   2
 	     */
-	public static void main(String[] args) {
-		
-	}
+
 
 	static int maxSum(TreeNode root) {
-       int sumLeft =  new MaxSum().maxSumMethod(root, Direction.LEFT);
-       int sumLeft =  new MaxSum().maxSumMethod(root, Direction.LEFT);
-    }
+       int sum =  new MaxSum().maxSumMethod(root, 0, 0);
+       System.out.println(sum);
+       return sum;
+	}
 
-	private int maxSumMethod(TreeNode node) {
-		if (node.getLeftNode() == null) return node.getValue();
-		int leftSum = maxSumMethod(node.getLeftNode());
+	private int maxSumMethod(TreeNode node, int totL, int totR) {
+		System.out.println("l " + totL + " r " + totR+ " value " + node.getValue());
+		if (node.getLeftNode() == null && node.getRightNode() == null) return node.getValue();
 		
+		int totLeft = 0, totRight = 0;
+		if (node.getLeftNode() != null) {
+			totLeft = maxSumMethod(node.getLeftNode(), totL + node.getValue(), totR);
+			totLeft += node.getValue();
+			System.out.println("totLeft" + totLeft);
+		}
+		if (node.getRightNode() !=null) {
+			totRight = maxSumMethod(node.getRightNode(),totR, node.getValue() + totR);
+			totRight += node.getValue();
+			System.out.println("tot right " + totRight);
+		}
 		
-		return 0;
+		return totLeft > totRight?totLeft:totRight;
 	}
 	
 	
