@@ -22,4 +22,10 @@ class SolutionTest {
         TreeNode root = new TreeNode(left, right, 5);
         assertEquals(MaxSum.maxSum(root), 33);
     }
+    
+    @Test
+    public void maxSumInNullTree() {
+        TreeNode root = null;
+        assertEquals(MaxSum.maxSum(root), 0);
+    }
 }
