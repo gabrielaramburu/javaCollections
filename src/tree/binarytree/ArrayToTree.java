@@ -8,19 +8,25 @@ public class ArrayToTree {
 	private static final int INITIAL_LEVEL = 1;
 	
 	static TreeNode arrayToTree(int[] array) {
-		System.out.println(Arrays.toString(array));
 		
 		if (array.length > 0) {
-			List<TreeNode> root = new ArrayList<TreeNode>();
-			root.add(new TreeNode(array[0]));
-			return new ArrayToTree().arrayToTreeRecursive(array, root, INITIAL_LEVEL).get(0);	
-		}
+			List<TreeNode> rootNodosOfCurrentLevel = new ArrayList<TreeNode>();
+			rootNodosOfCurrentLevel.add(new TreeNode(array[0]));
+			TreeNode root = new ArrayToTree().arrayToTreeRecursive(array, rootNodosOfCurrentLevel, INITIAL_LEVEL).get(0);
 			
+			List<Integer> test = new ArrayList<Integer>();
+			TreeNode.showInOrder(test, root);
+			System.out.println("result " + test.toString());
+			return root;
+		}
+		
+		
 		else return null;
 	}
-	
+
 	List<TreeNode> arrayToTreeRecursive(int[] source, List<TreeNode> rootsNodosOfCurrentLevel, int currentLevel) {
 		List<Integer> valuesToAssignOnNodesOfCurrentLevel = valuesOfCurrentLevel(source, currentLevel);	
+		System.out.println(currentLevel +"->"+valuesToAssignOnNodesOfCurrentLevel);
 		
 		if (valuesToAssignOnNodesOfCurrentLevel.isEmpty()) return rootsNodosOfCurrentLevel;
 			
@@ -55,11 +61,11 @@ public class ArrayToTree {
 	}
 
 	private int initialPosition(int currentLevel) {
-		int initPos = 1;
-		for (int level = 1; level < currentLevel; level++)
-			initPos += level * 2;
+		int numberOfNodesOfPreviuosLevels = 0;
+		for (int level = 0; level < currentLevel; level++)
+			numberOfNodesOfPreviuosLevels += Math.pow(2, level);
 		
-		return initPos;
+		return numberOfNodesOfPreviuosLevels;
 	} 
 	
 	private int finalPosition (int currentLevel) {
