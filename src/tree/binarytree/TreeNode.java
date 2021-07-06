@@ -27,7 +27,6 @@ class TreeNode {
 	public static void showInOrder(List<Integer> values, TreeNode node) {
 		if (node != null) {
 			TreeNode.showInOrder(values, node.left);
-			//System.out.println("node: " +node.value);
 			values.add(node.value);
 			TreeNode.showInOrder(values, node.right);
 		}
