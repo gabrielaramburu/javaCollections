@@ -70,14 +70,15 @@ public class SampleTests {
         						"#### ## # ",
         						"# #   #  #",
         						"# # ##### ",
-        						"#  # # ###",
-        						}   		, false, "complex 2"},
+        						"#    # ###",
+        						}   		, true, "complex 2"},
             new Object[] {
             		new String[] 
         						{"### # ## #",
-        						"##   ## ##",
+        						"##      ##",
+        						"##   ##  #",
         						"## # ###  ",
-        						" ######  #",
+        						" ####    #",
         						"   #  ####",
         						"   # k## #",
         						"    ## ## ",
@@ -85,7 +86,7 @@ public class SampleTests {
         						"#  ##  ## ",
         						"##  ## ###",
         						}
-            		, false, "complex 3"},
+            		, true, "complex 3"},
             new Object[] {
             		new String[] 
             				{" # # # # #",

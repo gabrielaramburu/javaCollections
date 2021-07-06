@@ -1,5 +1,6 @@
 package recursion.simplemaze;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,7 +50,7 @@ public class Maze {
 		
 		for (Position spacePos: spacesAroundCurrentPos) {
 			if (spacePos.isMatrixBorder()) return true;
-		
+			showMatrix(mazeMatrix, currentPos);
 			boolean result = findExit(
 					spacePos.findSpacesAround(celdsOnPath), 
 					new Position(spacePos.row, spacePos.col), 
@@ -162,13 +163,19 @@ public class Maze {
 	}	
 	
 	private void showMatrix(char[][] mat, Position pos) {
-		System.out.println("New matrix");
 		char aux = mat[pos.row][pos.col];
 		mat[pos.row][pos.col] = 'X';
 		for (char[] arr : mat) {
 			System.out.println(Arrays.toString(arr));
 		}
 		mat[pos.row][pos.col]=aux;
+		
+		try {
+			Thread.sleep(500);
+			for (int i = 0; i < 50; ++i) System.out.println("\n");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} 
 	}
 	
 	private void showArray(String[] arg) {
