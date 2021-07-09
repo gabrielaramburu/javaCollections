@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
-public class CompleteBinaryTreeFromArrayTest {
+class CompleteBinaryTreeFromArrayTest {
     @Test
     public void testSingleNodeTree() {
         int[] input = new int[]{1};
