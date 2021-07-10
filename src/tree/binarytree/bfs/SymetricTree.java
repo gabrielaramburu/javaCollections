@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/*
+/**
+ * 
 Input: root = [1,2,2,3,4,4,3]
 Output: true
 
