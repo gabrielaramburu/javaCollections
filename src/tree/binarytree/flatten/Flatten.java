@@ -4,6 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+ * 
+ * For example, given the following list:
+
+1 -> 4 -> 3 -> 6
+ \       / \    \
+  2     4   2    5
+
+The method should return the following tree:
+
+          1
+       /     \
+      2       3
+     / \     /
+    4   5   6   
+
+ */
 public class Flatten {
 	private List<Integer> valuesFromInitialStructure = new ArrayList<Integer>();
 	
