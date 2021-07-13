@@ -1,6 +1,7 @@
 package tree.binarytree.fromArrayToTree.twoArrays;
 
 import java.util.Arrays;
+import java.util.Map;
 
 /**
  *Given two integer arrays inorder and postorder where inorder 
@@ -18,14 +19,16 @@ import java.util.Arrays;
 	
  */
 public class FromArrayToTree {
-
+	private Map<Integer, Integer> inOrderMap;
+	
 	public static void main(String[] args) {
 //		int[] inOrder = {9, 3, 15, 20, 7};
 //		int[] postOrder = {9,15, 7, 20, 3};
-		int[] inOrder = {2, 3, 1};
-		int[] postOrder = {3, 2, 1};
-		new FromArrayToTree().builTree(inOrder, postOrder);
+//		int[] inOrder = {1, 2, 3, 4};
+//		int[] postOrder = {2, 1, 4, 3};
+//		new FromArrayToTree().builTree(inOrder, postOrder);
 	}
+	
 
 	public TreeNode builTree(int[] inOrder, int[] postOrder) {
 		if (inOrder.length == 0) return null;
@@ -34,17 +37,16 @@ public class FromArrayToTree {
 		int rootValue = postOrder[postOrder.length - 1];
 		int rootIdx = searchRootIdx(inOrder, rootValue);
 		
-		System.out.println("Root value inicial:" + rootValue);
+		int[] inOrderleftValues = Arrays.copyOfRange(inOrder, 0, rootIdx);
+		int[] inOrderRightValues = Arrays.copyOfRange(inOrder, rootIdx + 1, inOrder.length);
 		
-		int[] leftValues = Arrays.copyOfRange(inOrder, 0, rootIdx);
-		int[] rightValues = Arrays.copyOfRange(inOrder, rootIdx + 1, inOrder.length);
-		
-		System.out.println(Arrays.toString(leftValues));
-		System.out.println(Arrays.toString(rightValues));		
+		int idxStartRightValues = (postOrder.length - 1) - inOrderRightValues.length;
+		int[] postOrderRightValues = Arrays.copyOfRange(postOrder, idxStartRightValues, postOrder.length - 1);
+		int[] postOrderLeftValues = Arrays.copyOfRange(postOrder, 0, idxStartRightValues);
 		
 		TreeNode root = new TreeNode(rootValue);
-		root.left = buildFromArrays(leftValues);
-		root.right = buildFromArrays(rightValues);
+		root.left = builTree(inOrderleftValues, postOrderLeftValues);
+		root.right = builTree(inOrderRightValues, postOrderRightValues);
 		
 		return root;
 	}
@@ -54,22 +56,6 @@ public class FromArrayToTree {
 			if (inOrder[i] == rootValue) return i;
 		}
 		return -1;
-	}
-
-	public TreeNode buildFromArrays(int[] values) {
-		if (values.length == 0) return null;
-		if (values.length == 1) return new TreeNode(values[0]);
-		
-		int[] leftValues = Arrays.copyOfRange(values, 0, (values.length / 2));
-		int[] rightValues = Arrays.copyOfRange(values, (values.length / 2) + 1, values.length);
-		int rootValue = values[values.length / 2];
-		
-		System.out.println("root value " + rootValue);
-		TreeNode root = new TreeNode(rootValue);
-		root.left = buildFromArrays(leftValues);
-		root.right = buildFromArrays(rightValues);
-		
-		return root;
 	}
 	
 	class TreeNode {
