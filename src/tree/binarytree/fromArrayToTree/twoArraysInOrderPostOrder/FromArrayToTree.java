@@ -1,4 +1,4 @@
-package tree.binarytree.fromArrayToTree.twoArrays;
+package tree.binarytree.fromArrayToTree.twoArraysInOrderPostOrder;
 
 import java.util.Arrays;
 import java.util.Map;

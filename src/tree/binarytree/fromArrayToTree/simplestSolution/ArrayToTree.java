@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * La opción correcta es mucho más simple, no la conocía al moment 
+ * La opción correcta es mucho más simple, no la conocía al momento
  * de implementar esto.
+ * 
+ * De todas maneras, solo se puede reconstruir un árbol binario desde un array si el mismo
+ * es completo o perfecto. Si no lo es, es necesario tener dos arrays como entrada. (ver el otro ejemplo)
  *
  */
 public class ArrayToTree {
