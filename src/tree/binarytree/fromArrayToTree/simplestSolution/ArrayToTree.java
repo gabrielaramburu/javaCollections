@@ -8,7 +8,7 @@ import java.util.List;
  * de implementar esto.
  * 
  * De todas maneras, solo se puede reconstruir un árbol binario desde un array si el mismo
- * es completo o perfecto. Si no lo es, es necesario tener dos arrays como entrada. (ver el otro ejemplo)
+ * es completo o perfecto. Si no lo es, es necesario tener dos arrays como entrada. (ver el otro ejemplo)		
  *
  */
 public class ArrayToTree {
