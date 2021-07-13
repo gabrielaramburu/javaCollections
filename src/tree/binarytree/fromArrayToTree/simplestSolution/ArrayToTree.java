@@ -1,9 +1,13 @@
-package tree.binarytree;
+package tree.binarytree.fromArrayToTree.simplestSolution;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+/**
+ * La opción correcta es mucho más simple, no la conocía al moment 
+ * de implementar esto.
+ *
+ */
 public class ArrayToTree {
 	private static final int INITIAL_LEVEL = 1;
 	
