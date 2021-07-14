@@ -18,8 +18,7 @@ import java.util.Map;
 	
 	
  */
-public class FromArrayToTree {
-	private Map<Integer, Integer> inOrderMap;
+public class FromPostOrderInOrderArrayToTree {
 	
 	public static void main(String[] args) {
 //		int[] inOrder = {9, 3, 15, 20, 7};
