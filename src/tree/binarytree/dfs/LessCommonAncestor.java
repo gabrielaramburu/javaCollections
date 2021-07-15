@@ -86,7 +86,6 @@ public class LessCommonAncestor {
 			left = l;
 			right = r;
 		}
-		
 	}
 
 }
