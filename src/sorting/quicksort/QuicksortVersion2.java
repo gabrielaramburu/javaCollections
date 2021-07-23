@@ -5,6 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This version is able to perform a O(nlogn) sorting.
+ * As it's well know, this best case will depends on the arrays characteristics.
+ *
+ */
 public class QuicksortVersion2 {
 	public static void main(String[] args) {
 		QuicksortVersion1 v2 = new  QuicksortVersion1();
