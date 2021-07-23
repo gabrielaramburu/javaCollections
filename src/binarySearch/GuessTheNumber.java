@@ -1,5 +1,9 @@
 package binarySearch;
 
+/**
+ * @author gabriel
+ *
+ */
 public class GuessTheNumber {
 
 	public static void main(String[] args) {
@@ -30,8 +34,13 @@ public class GuessTheNumber {
 		return result;
 	}
 
+	
+	/**
+	 * This function is not part of the binary search algorithms theory. It just part of the problem.
+	 * @return
+	 */
 	int guess(int num) {
-		int piked = 6;
+		int piked = 6; //random name that the algorithm have to find out.
 		if (num == piked)
 			return 0;
 		if (piked < num)
