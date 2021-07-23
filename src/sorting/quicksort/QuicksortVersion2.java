@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
  */
 public class QuicksortVersion2 {
 	public static void main(String[] args) {
-		QuicksortVersion1 v2 = new  QuicksortVersion1();
-		int[] input = {3, 5,6 ,2 ,1 ,9 ,0, 8,7,4};
+		QuicksortVersion2 v2 = new  QuicksortVersion2();
+		int[] input = {3, 5, 6 ,2 ,1 ,9 ,0, 8,7,4};
 		System.out.println(Arrays.toString(v2.quickSort(input)));
 	}
 
@@ -26,33 +26,39 @@ public class QuicksortVersion2 {
 		if (low < high) {
 			int j = partition(input, low, high);
 			quickSort(input, low, j);
-			quickSort(input, j++, high);
+			quickSort(input, j+1, high);
 		}
 		return input;
 	}
 
 	private int partition( List<Integer> input, int low, int high) {
+		//System.out.println("entrada " + input.subList(low, high).toString());
 		int pivot = input.get(low);
+		//System.out.println("pivot " + pivot + " low " + low + " higj " + high);
 		int i = low;
 		int j = high;
-
-		while (i < j) {
+		
+		while ( i < j) {
 			do {
 				i++;
-			} while (input.get(i) <= pivot);
+			} while (i < high && input.get(i) <= pivot);
 			
 			do {
 				j--;
-			} while (input.get(j) > pivot);
+				
+			} while (j >= low && input.get(j) > pivot );
 			
 			if (i < j) {
 				//swap elements
 				Collections.swap(input, i, j);
+				//System.out.println("cambio " + input.toString());
 			}
 		}
 		//swap pivot with j
 		Collections.swap(input, low, j);
-		
-		return input.get(j);
+
+		//System.out.println(" partition index " + j);
+		//System.out.println("salida " + input.subList(low, high).toString());
+		return j;
 	}
 }
