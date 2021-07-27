@@ -16,6 +16,7 @@ import java.util.Map;
 	
 	The same idea apply to pre and post order.
 	
+	https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 	
  */
 public class FromPostOrderInOrderArrayToTree {
@@ -40,8 +41,9 @@ public class FromPostOrderInOrderArrayToTree {
 		int[] inOrderRightValues = Arrays.copyOfRange(inOrder, rootIdx + 1, inOrder.length);
 		
 		int idxStartRightValues = (postOrder.length - 1) - inOrderRightValues.length;
-		int[] postOrderRightValues = Arrays.copyOfRange(postOrder, idxStartRightValues, postOrder.length - 1);
 		int[] postOrderLeftValues = Arrays.copyOfRange(postOrder, 0, idxStartRightValues);
+		int[] postOrderRightValues = Arrays.copyOfRange(postOrder, idxStartRightValues, postOrder.length - 1);
+		
 		
 		TreeNode root = new TreeNode(rootValue);
 		root.left = builTree(inOrderleftValues, postOrderLeftValues);
