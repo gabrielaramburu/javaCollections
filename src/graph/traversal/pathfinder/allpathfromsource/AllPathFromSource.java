@@ -1,4 +1,4 @@
-package graph.traversal.allpathfromsource;
+package graph.traversal.pathfinder.allpathfromsource;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

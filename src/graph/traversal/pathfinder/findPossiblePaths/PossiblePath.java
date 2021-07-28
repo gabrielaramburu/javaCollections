@@ -1,4 +1,4 @@
-package graph.traversal.findPossiblePaths;
+package graph.traversal.pathfinder.findPossiblePaths;
 
 import java.util.Arrays;
 import java.util.LinkedList;
