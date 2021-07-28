@@ -19,14 +19,12 @@ public class PossiblePath {
 
 	class Graph {
 		List<Integer> adj[];
-		boolean visited[];
 		int totalPath;
 
 		Graph(int nodes, int[][] edges) {
 			this.adj = new LinkedList[nodes];
 			Arrays.setAll(this.adj, item -> new LinkedList());
-
-			this.visited = new boolean[nodes];
+			
 			totalPath = 0;
 
 			buildGraph(edges);
@@ -42,16 +40,23 @@ public class PossiblePath {
 		}
 
 		void findNumberOfPaths(int s, int d) {
-			visited[s] = true;
-
+	
 			this.adj[s].forEach(node -> {
 				if (node == d)
 					totalPath++;
 
-				//aparenetmente este control no esta bien.
-				if (!visited[node]) {
-					findNumberOfPaths(node, d);
-				}
+				//it's not correct to check if the node was already visited because you
+				//need (depending of the graph shape) pass more than one time on the same node
+				//Example: 
+				//0 -> 4,3,2
+				//1 -> 3,2,1
+				//2 -> 3
+				//3 -> 4
+				//4 -> []
+				
+				//if (!visited[node]) {
+				findNumberOfPaths(node, d);
+				
 			});
 		}
 
