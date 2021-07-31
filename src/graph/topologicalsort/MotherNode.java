@@ -13,6 +13,9 @@ import java.util.Arrays;
  dfs = O (V + E) 
  We execute two dfs therfore O(V + E) x 2
  We can also say that the order is O(n)
+ 
+ https://practice.geeksforgeeks.org/problems/mother-vertex/1
+ 
  */
 public class MotherNode {
 
@@ -27,11 +30,11 @@ public class MotherNode {
 		for (int i = 0; i < adjList.size(); i++) {
 			if (!visited[i]) {
 				dfs(i);
-				//topological sort idea
+				//topological sort idea, but not strictly a topological sort
 				lastVisitedNode = i;
 			}
 		}
-		// at this poitn I have the last node which should be the mather node.
+		// at this point I have the last node which should be the mather node.
 		if (isMother())
 			return lastVisitedNode;
 		else
