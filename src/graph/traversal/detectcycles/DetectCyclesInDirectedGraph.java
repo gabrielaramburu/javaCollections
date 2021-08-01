@@ -1,8 +1,8 @@
-package graph.traversal.detectcicles;
+package graph.traversal.detectcycles;
 
 import java.util.ArrayList;
 
-public class DetectCiclesInDirectedGraph {
+public class DetectCyclesInDirectedGraph {
 	boolean visited[];
 	ArrayList<ArrayList<Integer>> adjList;
 	boolean cycleDetected = false;
