@@ -20,7 +20,7 @@ public class WordCounter{
 		}
 
 		for (String key: counter.keySet()) {
-			System.out.format("%20s %d \n", key, counter.get(key));
+			System.out.format("%5d %20s \n", counter.get(key),  key);
 		}
 	}
 }
