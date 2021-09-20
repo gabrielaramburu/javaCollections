@@ -1,0 +1,21 @@
+hola
+como
+estas
+yo 
+bien 
+gracias
+gracias 
+a 
+ti
+no
+gracias
+a 
+ti
+esto es una prueba 
+de como leer desde la entrada standar del sistema
+utilizado java
+ademas el texto es procesado por un pequeño programa que cuenta palabras
+la duda que tengo es como hacer para recorrer el archivo por palabras y no
+por lineas
+eso lo voy a descubrir en pocos minutos
+
