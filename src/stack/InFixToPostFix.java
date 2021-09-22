@@ -61,9 +61,9 @@ public class InFixToPostFix {
 				stackA.addFirst(c);
 			} else {
 				result.append(stackA.removeFirst());
-				stackA.addFirst(c);	
-				
+				stackA.addFirst(c);		
 			}
+			
 		} else {
 			stackA.addFirst(c);
 		}	
