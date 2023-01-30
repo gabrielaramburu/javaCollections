@@ -1,3 +1,5 @@
+package binarySearch;
+
 public class BinarySearchImpl {
 	public static void main(String[] args) {
 		int target = Integer.valueOf(args[0]);

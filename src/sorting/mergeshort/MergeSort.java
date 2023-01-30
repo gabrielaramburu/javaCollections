@@ -8,8 +8,8 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 		MergeSort ms = new MergeSort();
-		 //int[] arr = {4, 6, 3, 2 ,8 ,7 ,5 ,9 ,0 , 1};
-		int[] arr = { 3 };
+		 int arr[] = {9, 2, 5, 7, 8, 0, 1, 3, 4, 6};
+		//int[] arr = { 3 };
 		System.out.println("Result " + Arrays.toString(ms.mergeSort(arr)));
 	}
 
@@ -18,6 +18,7 @@ public class MergeSort {
 	}
 
 	private int[] mergeSort(int[] arr, int low, int high) {
+		 System.out.println("low " + low + " hi " + high);
 		if ((high - low) > 0) { // merge needs at least a two length array
 
 			int mid = low + ((high - low) / 2);

@@ -8,7 +8,7 @@ public class PossiblePath {
 	public static void  main(String[] args) {
 		PossiblePath possible = new PossiblePath();
 		int[][] input = {{0,1},{0,3},{3, 2},{1, 2}, {3, 4}, {4, 2}, {5, 2}};
-		System.out.println("resutl  " + possible.possible_paths(input, 7, 0, 2));
+		System.out.println("resutl  " + possible.possible_paths(input, 6, 0, 2));
 	}
 
 	public int possible_paths(int[][] edges, int n, int s, int d) {

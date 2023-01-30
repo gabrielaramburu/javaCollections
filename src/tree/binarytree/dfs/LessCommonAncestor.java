@@ -53,7 +53,7 @@ public class LessCommonAncestor {
 		if (root == null) return null;
 		
 		if (root.val == val) {
-			path.add(root.val);
+				
 			return root;
 		}
 		

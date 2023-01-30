@@ -17,8 +17,8 @@ public class QuicksortVersion1 {
 	 * Very awkward implementation
 	 * 
 	 * This version has two problems:
-	 * 	1) always execute in order O(n2)
-	 * 	2) use much more memory O(n2) also
+	 * 	1) always execute in order O(n2) update: I'm not sure about this.
+	 * 	2) use much more memory O(n2) update: I'm not sure about this nether.
 	 * 
 	 */
 	public int[] quickSort(int[] array) {

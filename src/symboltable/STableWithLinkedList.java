@@ -1,3 +1,5 @@
+package symboltable;
+
 import java.util.*;
 
 public class STableWithLinkedList {
